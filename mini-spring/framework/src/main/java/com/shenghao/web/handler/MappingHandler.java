@@ -1,11 +1,10 @@
 package com.shenghao.web.handler;
 
 import com.shenghao.beans.BeanFactory;
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
-import sun.rmi.transport.ObjectTable;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -24,7 +23,7 @@ public class MappingHandler {
         this.args = args;
     }
 
-    public boolean handle(ServletRequest req, ServletResponse res) throws IllegalAccessException, InstantiationException, InvocationTargetException, IOException {
+    public boolean handle(ServletRequest req, ServletResponse res) throws IllegalAccessException, InvocationTargetException, IOException {
         //拿到请求的uri
         String requestUri = ((HttpServletRequest)req).getRequestURI();
         if(!uri.equals(requestUri)){//如果和自身uri不同就跳过

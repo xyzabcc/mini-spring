@@ -15,7 +15,6 @@ public class HandlerManager {
 
     /**
      * 处理类文件集合，挑出MappingHandler
-     * @param classList
      */
     public static void resolveMappingHandler(List<Class<?>> classList){
         System.out.println("测试有多少个.class文件：" + classList.size());
@@ -41,7 +40,7 @@ public class HandlerManager {
                     paramNameList.add(parameter.getDeclaredAnnotation(RequestParam.class).value());
                 }
             }
-            String[] params = paramNameList.toArray(new String[paramNameList.size()]);//把参数集合转为数组，用于反射
+            String[] params = paramNameList.toArray(new String[0]);//把参数集合转为数组，用于反射
             MappingHandler mappingHandler = new MappingHandler(uri, method, cls, params);//反射生成MappingHandler
             mappingHandlerList.add(mappingHandler);//把mappingHandler装入集合中
         }
